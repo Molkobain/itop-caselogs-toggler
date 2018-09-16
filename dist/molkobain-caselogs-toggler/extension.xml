@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension format="1.0">
+	<extension_code>molkobain-caselogs-toggler</extension_code>
+	<company>Molkobain</company>
+	<author><![CDATA[Guillaume Lajarige]]></author>
+	<label><![CDATA[Caselog entries toggler]]></label>
+	<description><![CDATA[Finally a way to open / close all entries at once!]]></description>
+	<version>1.0.0</version>
+	<release_date>2018-09-16</release_date>
+	<version_description><![CDATA[Initial release.]]></version_description>
+	<itop_version_min>2.4.0</itop_version_min>
+	<status>stable</status>
+	<mandatory>false</mandatory>
+	<more_info_url>https://github.com/Molkobain/itop-caselogs-toggler</more_info_url>
+</extension>
