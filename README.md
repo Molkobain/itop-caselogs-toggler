@@ -12,6 +12,8 @@ This extension simply adds 2 buttons next to the caselog title, in both the cons
 ### Compatibility
 Compatible with iTop 2.4+
 
+*Note: Partial compatiblity with iTop 2.3, only working in the admin console.*
+
 ### Installation
 * Unzip the extension
 * Copy the ``dist/molkobain-caselogs-toggler`` folder under ``<PATH_TO_ITOP>/extensions`` folder of your iTop
