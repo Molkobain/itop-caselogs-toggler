@@ -10,10 +10,9 @@
 
 @import '../datamodels/2.x/itop-portal-base/portal/web/css/variables.scss';
 
-/* Reset for admin console mostly */
 .molkobain-caselogs-toggler{
+  /* Reset for admin console mostly */
   box-sizing: border-box;
-
   *{
     box-sizing: border-box;
 
@@ -22,5 +21,26 @@
       box-sizing: border-box;
     }
   }
+
+  margin-left: 15px;
+  margin-right: 5px;
+  vertical-align: text-top;
+  font-size: 10px;
+
+  > span{
+    &.mct-button{
+      cursor: pointer;
+    }
+    &.mct-separator{
+      margin: 0 5px;
+    }
+  }
 }
 
+/* Portal tuning*/
+.form-group{
+  .molkobain-caselogs-toggler{
+    margin-left: 12px;
+    vertical-align: initial;
+  }
+}

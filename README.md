@@ -1,9 +1,13 @@
 # iTop extension: molkobain-caselogs-toggler
 
 ### Description
-This extension adds 2 buttons to each caselogs, allowing users to open / close all entries at once.
+Have a better user experience with caselogs by being able to open / close all entries at once.
 
-![Description decoration](https://raw.githubusercontent.com/Molkobain/itop-caselogs-toggler/master/docs/mct-console-example-01.PNG)
+This extension simply adds 2 buttons next to the caselog title, in both the console & portal.
+
+![Description decoration](https://raw.githubusercontent.com/Molkobain/itop-caselogs-toggler/master/docs/mct-portal-example-01.PNG)
+
+![Description decoration](https://raw.githubusercontent.com/Molkobain/itop-caselogs-toggler/master/docs/mct-portal-example-02.PNG)
 
 ### Compatibility
 Compatible with iTop 2.4+

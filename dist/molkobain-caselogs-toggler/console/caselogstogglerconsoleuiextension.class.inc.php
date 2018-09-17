@@ -12,6 +12,7 @@
 namespace Molkobain\iTop\Console\CaselogsToggler\Extension;
 
 use utils;
+use Dict;
 use MetaModel;
 use DBObjectSet;
 use WebPage;
@@ -30,6 +31,8 @@ class CaselogsTogglerConsoleUIExtension implements iApplicationUIExtension
 
     /**
      * @inheritdoc
+     *
+     * @throws \DictExceptionMissingString
      */
     public function OnDisplayProperties($oObject, WebPage $oPage, $bEditMode = false)
     {
@@ -42,6 +45,9 @@ class CaselogsTogglerConsoleUIExtension implements iApplicationUIExtension
         // Add css files
         $oPage->add_saas('env-' . utils::GetCurrentEnvironment() . '/' . static::MODULE_CODE . '/common/css/caselogs-toggler.scss');
 
+        $sExpandTitle = Dict::S('Molkobain:CaselogsToggler:Entries:OpenAll');
+        $sCollapseTitle = Dict::S('Molkobain:CaselogsToggler:Entries:CloseAll');
+
         // Instanciate widget on object's caselogs
         $oPage->add_ready_script(
 <<<EOF
@@ -50,25 +56,28 @@ class CaselogsTogglerConsoleUIExtension implements iApplicationUIExtension
         // Initializing widget
         $('fieldset > .caselog').each(function(){
             var me = $(this);
-            var oExpandElem = $('<span class="fa fa-envelope-open-o"></span>');
-            var oCollapseElem = $('<span class="fa fa-envelope-o"></span>');
+            var oExpandElem = $('<span class="mct-button fa fa-envelope-open-o" title="{$sExpandTitle}" data-toggle="tooltip"></span>');
+            var oCollapseElem = $('<span class="mct-button fa fa-envelope-o" title="{$sCollapseTitle}" data-toggle="tooltip"></span>');
             
             // Bind listeners
             oExpandElem.on('click', function(){
-                me.find('.caselog_header').addClass('open');
-                me.find('.caselog_entry, .caselog_entry_html').show();
-            });
+                    me.find('.caselog_header').addClass('open');
+                    me.find('.caselog_entry, .caselog_entry_html').show();
+                })
+                .tooltip();
             oCollapseElem.on('click', function(){
-                me.find('.caselog_header').removeClass('open');
-                me.find('.caselog_entry, .caselog_entry_html').hide();
-            });
+                    me.find('.caselog_header').removeClass('open');
+                    me.find('.caselog_entry, .caselog_entry_html').hide();
+                })
+                .tooltip();
             
             var oWrapperElem = $('<span class="molkobain-caselogs-toggler"></span>');
             oWrapperElem
                 .append(oExpandElem)
+                .append('<span class="mct-separator">-</span>')
                 .append(oCollapseElem);
                 
-            $(this).closest('fieldset').find('legend').append(oWrapperElem);
+            me.closest('fieldset').find('legend').append(oWrapperElem);
         });
     });
 EOF

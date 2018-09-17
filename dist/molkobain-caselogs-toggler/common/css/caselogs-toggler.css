@@ -7,13 +7,28 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-/* Reset for admin console mostly */
 .molkobain-caselogs-toggler {
+  /* Reset for admin console mostly */
   box-sizing: border-box;
+  margin-left: 15px;
+  margin-right: 5px;
+  vertical-align: text-top;
+  font-size: 10px;
 }
 .molkobain-caselogs-toggler * {
   box-sizing: border-box;
 }
 .molkobain-caselogs-toggler *:before, .molkobain-caselogs-toggler *:after {
   box-sizing: border-box;
+}
+.molkobain-caselogs-toggler > span.mct-button {
+  cursor: pointer;
+}
+.molkobain-caselogs-toggler > span.mct-separator {
+  margin: 0 5px;
+}
+/* Portal tuning*/
+.form-group .molkobain-caselogs-toggler {
+  margin-left: 12px;
+  vertical-align: initial;
 }

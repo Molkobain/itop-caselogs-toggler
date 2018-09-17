@@ -12,6 +12,7 @@
 namespace Molkobain\iTop\Portal\CaselogsToggler\Extension;
 
 use utils;
+use Dict;
 use MetaModel;
 use AbstractPortalUIExtension;
 use Silex\Application;
@@ -54,6 +55,8 @@ class CaselogsTogglerPortalUIExtension extends AbstractPortalUIExtension
 
     /**
      * @inheritdoc
+     *
+     * @throws \DictExceptionMissingString
      */
     public function GetJSInline(Application $oApp)
     {
@@ -63,12 +66,38 @@ class CaselogsTogglerPortalUIExtension extends AbstractPortalUIExtension
             return '';
         }
 
+        $sExpandTitle = Dict::S('Molkobain:CaselogsToggler:Entries:OpenAll');
+        $sCollapseTitle = Dict::S('Molkobain:CaselogsToggler:Entries:CloseAll');
+
         $sJSInline =
 <<<EOF
 
+// Molkobain caselogs toggler
 function InstanciateCaselogsToggler(oElem)
 {
-    oElem.find('label').append('<span class="molkobain-caselogs-toggler"><span class="fa fa-envelope-open-o"></span><span class="fa fa-envelope-o"></span></span>');
+    var me = oElem;
+    var oExpandElem = $('<span class="mct-button fa fa-envelope-open-o" title="{$sExpandTitle}" data-toggle="tooltip"></span>');
+    var oCollapseElem = $('<span class="mct-button fa fa-envelope-o" title="{$sCollapseTitle}" data-toggle="tooltip"></span>');
+    
+    // Bind listeners
+    oExpandElem.on('click', function(){
+            me.find('.caselog_field_entry_header .caselog_field_entry_button').removeClass('collapsed');
+            me.find('.caselog_field_entry_content').addClass('in');
+        })
+        .tooltip();
+    oCollapseElem.on('click', function(){
+            me.find('.caselog_field_entry_header .caselog_field_entry_button').addClass('collapsed');
+            me.find('.caselog_field_entry_content').removeClass('in');
+        })
+        .tooltip();
+    
+    var oWrapperElem = $('<span class="molkobain-caselogs-toggler"></span>');
+    oWrapperElem
+        .append(oExpandElem)
+        .append('<span class="mct-separator">-</span>')
+        .append(oCollapseElem);
+        
+    me.find('.form_field_label label').append(oWrapperElem);
 }
 
 // Instanciate widget on modals
