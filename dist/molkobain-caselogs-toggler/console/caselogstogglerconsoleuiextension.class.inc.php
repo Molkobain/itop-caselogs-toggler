@@ -56,25 +56,25 @@ class CaselogsTogglerConsoleUIExtension implements iApplicationUIExtension
         // Initializing widget
         $('fieldset > .caselog').each(function(){
             var me = $(this);
-            var oExpandElem = $('<span class="mct-button fa fa-envelope-open-o" title="{$sExpandTitle}" data-toggle="tooltip"></span>');
-            var oCollapseElem = $('<span class="mct-button fa fa-envelope-o" title="{$sCollapseTitle}" data-toggle="tooltip"></span>');
+            var oExpandElem = $('<span class="mct-button fa fa-plus-square-o fa-lg" title="{$sExpandTitle}" data-toggle="tooltip"></span>');
+            var oCollapseElem = $('<span class="mct-button fa fa-minus-square-o fa-lg" title="{$sCollapseTitle}" data-toggle="tooltip"></span>');
             
             // Bind listeners
             oExpandElem.on('click', function(){
                     me.find('.caselog_header').addClass('open');
                     me.find('.caselog_entry, .caselog_entry_html').show();
                 })
-                .tooltip();
+                .qtip({ style: { name: 'dark', tip: 'bottomMiddle' }, position: { corner: { target: 'topMiddle', tooltip: 'bottomMiddle' }, adjust: { y: -20 }} });
             oCollapseElem.on('click', function(){
                     me.find('.caselog_header').removeClass('open');
                     me.find('.caselog_entry, .caselog_entry_html').hide();
                 })
-                .tooltip();
+                .qtip({ style: { name: 'dark', tip: 'bottomMiddle' }, position: { corner: { target: 'topMiddle', tooltip: 'bottomMiddle' }, adjust: { y: -20 }} });
             
             var oWrapperElem = $('<span class="molkobain-caselogs-toggler"></span>');
             oWrapperElem
                 .append(oExpandElem)
-                .append('<span class="mct-separator">-</span>')
+                .append('<span class="mct-separator">/</span>')
                 .append(oCollapseElem);
                 
             me.closest('fieldset').find('legend').append(oWrapperElem);

@@ -13,7 +13,7 @@
   margin-left: 15px;
   margin-right: 5px;
   vertical-align: text-top;
-  font-size: 10px;
+  font-size: 0.9em;
 }
 .molkobain-caselogs-toggler * {
   box-sizing: border-box;
@@ -25,7 +25,8 @@
   cursor: pointer;
 }
 .molkobain-caselogs-toggler > span.mct-separator {
-  margin: 0 5px;
+  margin: 0 4px;
+  font-size: 0.8em;
 }
 /* Portal tuning*/
 .form-group .molkobain-caselogs-toggler {

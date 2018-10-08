@@ -15,7 +15,7 @@
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'molkobain-caselogs-toggler/1.0.0',
+	'molkobain-caselogs-toggler/1.1.0',
 	array(
 		// Identification
 		//
@@ -32,7 +32,6 @@ SetupWebPage::AddModule(
 		// Components
 		//
 		'datamodel' => array(
-		    'common/caseloghelper.class.inc.php',
 		    'console/caselogstogglerconsoleuiextension.class.inc.php',
             'portal/apis/extensions/caselogstogglerportaluiextension.class.inc.php',
 		),
