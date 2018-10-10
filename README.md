@@ -1,3 +1,5 @@
+👋 [Available on Molkobain I/O](https://www.molkobain.com/product/caselogs-toggler/)
+
 # iTop extension: molkobain-caselogs-toggler
 
 ### Description
