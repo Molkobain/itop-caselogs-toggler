@@ -104,15 +104,16 @@ function InstanciateCaselogsToggler(oElem)
 
 // Instanciate widget on modals
 $('body').on('loaded.bs.modal', function (oEvent) {
-    var oForm = $(oEvent.target).find('.modal-content form');
-    if(oForm.length > 0)
-    {
-        if(oForm.find('.field_set .form_field_control .caselog_field_entry:first').length > 0)
+    setTimeout(function(){
+        var oForm = $(oEvent.target).find('.modal-content form');
+        if(oForm.length > 0)
         {
-            InstanciateCaselogsToggler(oForm.find('.field_set .form_field_control .caselog_field_entry:first').closest('.form-group'));
+            if(oForm.find('.field_set .form_field_control .caselog_field_entry:first').length > 0)
+            {
+                InstanciateCaselogsToggler(oForm.find('.field_set .form_field_control .caselog_field_entry:first').closest('.form-group'));
+            }
         }
-    }
-    
+    }, 200);
 });
 
 // Instanciate widget on initial elements
