@@ -9,33 +9,37 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace Molkobain\iTop\Portal\CaselogsToggler\Extension;
+namespace Molkobain\iTop\CaselogsToggler\Portal\Extension;
 
-use utils;
+use AbstractPortalUIExtension;
 use Dict;
 use MetaModel;
-use AbstractPortalUIExtension;
 use Silex\Application;
+use utils;
+use Molkobain\iTop\CaselogsToggler\Common\Helper\ConfigHelper;
 
 /**
- * Class CaselogsTogglerPortalUIExtension
+ * Class PortalUIExtension
  *
- * @package Molkobain\iTop\Portal\CaselogsToggler\Extension
+ * @package Molkobain\iTop\CaselogsToggler\Portal\Extension
  */
-class CaselogsTogglerPortalUIExtension extends AbstractPortalUIExtension
+class PortalUIExtension extends AbstractPortalUIExtension
 {
-    const MODULE_CODE = 'molkobain-caselogs-toggler';
-
-    const DEFAULT_ENABLED = true;
-
     /**
      * @inheritdoc
      */
     public function GetCSSFiles(Application $oApp)
     {
-        $sModuleVersion = utils::GetCompiledModuleVersion(static::MODULE_CODE);
-        $sURLBase = utils::GetAbsoluteUrlModulesRoot() . '/' . static::MODULE_CODE . '/';
+        // Check if enabled
+        if(ConfigHelper::IsEnabled() === false)
+        {
+            return array();
+        }
 
+        $sModuleVersion = utils::GetCompiledModuleVersion(ConfigHelper::GetModuleCode());
+        $sURLBase = utils::GetAbsoluteUrlModulesRoot() . '/' . ConfigHelper::GetModuleCode() . '/';
+
+        // Note: Here we pass the compiled .css file in order to be compatible with iTop 2.5 and earlier (ApplicationHelper::LoadUIExtensions() refactoring that uses utils::GetCSSFromSASS())
         $aReturn = array(
             $sURLBase . 'common/css/caselogs-toggler.css?v=' . $sModuleVersion,
         );
@@ -55,13 +59,11 @@ class CaselogsTogglerPortalUIExtension extends AbstractPortalUIExtension
 
     /**
      * @inheritdoc
-     *
-     * @throws \DictExceptionMissingString
      */
     public function GetJSInline(Application $oApp)
     {
         // Check if enabled
-        if(MetaModel::GetConfig()->GetModuleSetting(static::MODULE_CODE, 'enabled', static::DEFAULT_ENABLED) === false)
+        if(ConfigHelper::IsEnabled() === false)
         {
             return '';
         }
