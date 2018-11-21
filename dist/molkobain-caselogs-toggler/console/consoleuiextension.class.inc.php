@@ -13,7 +13,6 @@ namespace Molkobain\iTop\CaselogsToggler\Console\Extension;
 
 use utils;
 use Dict;
-use MetaModel;
 use DBObjectSet;
 use WebPage;
 use iApplicationUIExtension;

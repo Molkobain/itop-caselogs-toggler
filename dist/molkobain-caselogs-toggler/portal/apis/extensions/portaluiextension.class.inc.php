@@ -13,7 +13,6 @@ namespace Molkobain\iTop\CaselogsToggler\Portal\Extension;
 
 use AbstractPortalUIExtension;
 use Dict;
-use MetaModel;
 use Silex\Application;
 use utils;
 use Molkobain\iTop\CaselogsToggler\Common\Helper\ConfigHelper;
@@ -59,6 +58,8 @@ class PortalUIExtension extends AbstractPortalUIExtension
 
     /**
      * @inheritdoc
+     *
+     * @throws \DictExceptionMissingString
      */
     public function GetJSInline(Application $oApp)
     {
