@@ -20,7 +20,7 @@ SetupWebPage::AddModule(
 		// Identification
 		//
 		'label' => 'Caselog entries toggler',
-		'category' => 'UI',
+		'category' => 'ui',
 
 		// Setup
 		//
