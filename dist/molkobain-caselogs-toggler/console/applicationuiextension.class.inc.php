@@ -1,29 +1,27 @@
 <?php
 /**
- * Copyright (c) 2015 - 2018 Molkobain.
+ * Copyright (c) 2015 - 2019 Molkobain.
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * This file is part of licensed extension.
  *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * Use of this extension is bound by the license you purchased. A license grants you a non-exclusive and non-transferable right to use and incorporate the item in your personal or commercial projects. There are several licenses available (see https://www.molkobain.com/usage-licenses/ for more informations)
  */
 
-namespace Molkobain\iTop\CaselogsToggler\Console\Extension;
+namespace Molkobain\iTop\Extension\CaselogsToggler\Console\Extension;
 
 use utils;
 use Dict;
 use DBObjectSet;
 use WebPage;
 use iApplicationUIExtension;
-use Molkobain\iTop\CaselogsToggler\Common\Helper\ConfigHelper;
+use Molkobain\iTop\Extension\CaselogsToggler\Common\Helper\ConfigHelper;
 
 /**
- * Class ConsoleUIExtension
+ * Class ApplicationUIExtension
  *
- * @package Molkobain\iTop\CaselogsToggler\Console\Extension
+ * @package Molkobain\iTop\Extension\CaselogsToggler\Console\Extension
  */
-class ConsoleUIExtension implements iApplicationUIExtension
+class ApplicationUIExtension implements iApplicationUIExtension
 {
     /**
      * @inheritdoc
@@ -64,12 +62,12 @@ class ConsoleUIExtension implements iApplicationUIExtension
                     me.find('.caselog_header').addClass('open');
                     me.find('.caselog_entry, .caselog_entry_html').show();
                 })
-                .qtip({ style: { name: 'dark', tip: 'bottomMiddle' }, position: { corner: { target: 'topMiddle', tooltip: 'bottomMiddle' }, adjust: { y: -20 }} });
+                .qtip({ style: { name: 'molkobain-dark', tip: 'bottomMiddle' }, position: { corner: { target: 'topMiddle', tooltip: 'bottomMiddle' }, adjust: { y: -20 }} });
             oCollapseElem.on('click', function(){
                     me.find('.caselog_header').removeClass('open');
                     me.find('.caselog_entry, .caselog_entry_html').hide();
                 })
-                .qtip({ style: { name: 'dark', tip: 'bottomMiddle' }, position: { corner: { target: 'topMiddle', tooltip: 'bottomMiddle' }, adjust: { y: -20 }} });
+                .qtip({ style: { name: 'molkobain-dark', tip: 'bottomMiddle' }, position: { corner: { target: 'topMiddle', tooltip: 'bottomMiddle' }, adjust: { y: -20 }} });
             
             var oWrapperElem = $('<span class="molkobain-caselogs-toggler"></span>');
             oWrapperElem

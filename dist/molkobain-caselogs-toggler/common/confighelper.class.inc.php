@@ -1,66 +1,23 @@
 <?php
 /**
- * Copyright (c) 2015 - 2018 Molkobain.
+ * Copyright (c) 2015 - 2019 Molkobain.
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * This file is part of licensed extension.
  *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * Use of this extension is bound by the license you purchased. A license grants you a non-exclusive and non-transferable right to use and incorporate the item in your personal or commercial projects. There are several licenses available (see https://www.molkobain.com/usage-licenses/ for more informations)
  */
 
-namespace Molkobain\iTop\CaselogsToggler\Common\Helper;
+namespace Molkobain\iTop\Extension\CaselogsToggler\Common\Helper;
 
-use Exception;
-use MetaModel;
+use Molkobain\iTop\Extension\HandyFramework\Common\Helper\ConfigHelper as BaseConfigHelper;
 
 /**
  * Class ConfigHelper
  *
- * @package Molkobain\iTop\CaselogsToggler\Common\Helper
+ * @package Molkobain\iTop\Extension\CaselogsToggler\Common\Helper
  */
-class ConfigHelper
+class ConfigHelper extends BaseConfigHelper
 {
     const MODULE_NAME = 'molkobain-caselogs-toggler';
-    const SETTING_CONST_FQCN = 'Molkobain\\iTop\\CaselogsToggler\\Common\\Helper\\ConfigHelper';
-
-    const DEFAULT_SETTING_ENABLED = true;
-
-    /**
-     * @return string
-     */
-    public static function GetModuleCode()
-    {
-        return static::MODULE_NAME;
-    }
-
-    /**
-     * Returns the value of the $sName module setting or its default value if not set in the conf file.
-     *
-     * @param string $sName Name of the module setting to get
-     * @return mixed
-     */
-    public static function GetSetting($sName)
-    {
-        try
-        {
-            $defaultValue = constant(static::SETTING_CONST_FQCN.'::DEFAULT_SETTING_'.strtoupper($sName));
-        }
-        catch(Exception $e)
-        {
-            $defaultValue = null;
-        }
-
-        return MetaModel::GetModuleSetting(static::MODULE_NAME, $sName, $defaultValue);
-    }
-
-    /**
-     * Returns true if the module is enabled
-     *
-     * @return boolean
-     */
-    public static function IsEnabled()
-    {
-        return static::GetSetting('enabled');
-    }
+    const SETTING_CONST_FQCN = 'Molkobain\\iTop\\Extension\\CaselogsToggler\\Common\\Helper\\ConfigHelper';
 }
