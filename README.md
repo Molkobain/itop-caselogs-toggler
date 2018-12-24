@@ -16,6 +16,11 @@ This extension simply adds 2 buttons next to the caselog title, in both the cons
 ### Compatibility
 Compatible with iTop 2.4+
 
+### Dependencies
+* Module `molkobain-handy-framework/1.0.0`
+
+*Note: All dependencies are included in the `dist/` folder, so all you need to do is follow the installation section below.*
+
 ### Installation
 * Unzip the extension
 * Copy the ``dist/molkobain-caselogs-toggler`` folder under ``<PATH_TO_ITOP>/extensions`` folder of your iTop
