@@ -6,7 +6,8 @@
  *
  * Use of this extension is bound by the license you purchased. A license grants you a non-exclusive and non-transferable right to use and incorporate the item in your personal or commercial projects. There are several licenses available (see https://www.molkobain.com/usage-licenses/ for more informations)
  */
-Dict::Add('FR FR', 'French', 'Français', array(
-	'Molkobain:CaselogsToggler:Entries:OpenAll' => 'Ouvrir tous les messages',
-    'Molkobain:CaselogsToggler:Entries:CloseAll' => 'Fermer tous les messages',
+
+Dict::Add('DE DE', 'German', 'Deutsch', array(
+	'Molkobain:CaselogsToggler:Entries:OpenAll' => 'Open all messages~~',
+    'Molkobain:CaselogsToggler:Entries:CloseAll' => 'Close all messages~~',
 ));
