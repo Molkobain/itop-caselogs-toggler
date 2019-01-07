@@ -8,6 +8,6 @@
  */
 
 Dict::Add('NL NL', 'Dutch', 'Nederlands', array(
-	'Molkobain:CaselogsToggler:Entries:OpenAll' => 'Open all messages~~',
-    'Molkobain:CaselogsToggler:Entries:CloseAll' => 'Close all messages~~',
+	'Molkobain:CaselogsToggler:Entries:OpenAll' => 'Klap alle berichten open',
+    'Molkobain:CaselogsToggler:Entries:CloseAll' => 'Klap alle berichten dicht',
 ));
