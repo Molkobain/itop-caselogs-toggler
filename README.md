@@ -37,5 +37,9 @@ No configuration needed.
 Some configuration parameters are available from the Configuration editor of the console:
 * ``enabled`` Enable / disable the extension without having to uninstall it. Value can be ``true`` or ``false``.
 
+### Contributors
+I would like to give a special thank you to the people who contributed to this:
+ - Bostoen, Jeffrey
+
 ### Licensing
 This extension is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
