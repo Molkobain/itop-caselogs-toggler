@@ -3,6 +3,7 @@
 # iTop extension: molkobain-caselogs-toggler
 * [Description](#description)
 * [Compatibility](#compatibility)
+* [Downloads](#downloads)
 * [Installation](#installation)
 * [Configuration](#configuration)
 
@@ -24,6 +25,11 @@ Compatible with iTop 2.4+
 * Module `molkobain-handy-framework/1.0.0`
 
 *Note: All dependencies are included in the `dist/` folder, so all you need to do is follow the installation section below.*
+
+## Downloads
+Stable releases can be found either on the [releases page](https://github.com/Molkobain/itop-caselogs-toggler/releases) or on [Molkobain I/O](https://www.molkobain.com/product/caselogs-toggler/).
+
+Downloading it directly from the *Clone or download* will get you the version under development which might be unstable.
 
 ## Installation
 * Unzip the extension
