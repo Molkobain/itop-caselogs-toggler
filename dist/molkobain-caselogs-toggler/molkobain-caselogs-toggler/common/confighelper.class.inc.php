@@ -20,4 +20,8 @@ class ConfigHelper extends BaseConfigHelper
 {
     const MODULE_NAME = 'molkobain-caselogs-toggler';
     const SETTING_CONST_FQCN = 'Molkobain\\iTop\\Extension\\CaselogsToggler\\Common\\Helper\\ConfigHelper';
+
+    const DEFAULT_SETTING_OPEN_ALL_ICON = 'fas fa-book-open';
+    const DEFAULT_SETTING_CLOSE_ALL_ICON = 'fas fa-book';
+    const DEFAULT_SETTING_ICONS_SEPARATOR = '-';
 }

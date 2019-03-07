@@ -41,10 +41,15 @@ class ApplicationUIExtension implements iApplicationUIExtension
 
         // Add css files
         // Note: Here we pass the compiled .css file in order to be compatible with iTop 2.5 and earlier (utils::GetCSSFromSASS() refactoring)
+	    //$oPage->add_saas('env-' . utils::GetCurrentEnvironment() . '/' . ConfigHelper::GetModuleCode() . '/common/css/caselogs-toggler.scss');
         $oPage->add_linked_stylesheet($sURLBase . 'common/css/caselogs-toggler.css?v=' . $sModuleVersion);
 
         $sExpandTitle = Dict::S('Molkobain:CaselogsToggler:Entries:OpenAll');
         $sCollapseTitle = Dict::S('Molkobain:CaselogsToggler:Entries:CloseAll');
+
+        $sExpandCssClasses = ConfigHelper::GetSetting('open_all_icon');
+        $sCollapseCssClasses = ConfigHelper::GetSetting('close_all_icon');
+        $sIconsSeparator = ConfigHelper::GetSetting('icons_separator');
 
         // Instanciate widget on object's caselogs
         $oPage->add_ready_script(
@@ -54,8 +59,31 @@ class ApplicationUIExtension implements iApplicationUIExtension
         // Initializing widget
         $('fieldset > .caselog').each(function(){
             var me = $(this);
-            var oExpandElem = $('<span class="mct-button fa fa-plus-square-o fa-lg" title="{$sExpandTitle}" data-toggle="tooltip"></span>');
-            var oCollapseElem = $('<span class="mct-button fa fa-minus-square-o fa-lg" title="{$sCollapseTitle}" data-toggle="tooltip"></span>');
+            
+            // Stop if no entry
+            if(me.find('.caselog_header').length == 0)
+            {
+                return;
+            }
+            
+            // Wrapper element on top of the caselog
+            var oWrapperElem = $('<div class="molkobain-caselogs-toggler"></div>')
+                .prependTo( me.find('tr:first').parent() );
+                
+            // Togglers
+            var oExpandElem = $('<span class="mct-button {$sExpandCssClasses}" title="{$sExpandTitle}" data-toggle="tooltip"></span>');
+            var oCollapseElem = $('<span class="mct-button {$sCollapseCssClasses}" title="{$sCollapseTitle}" data-toggle="tooltip"></span>');
+            $('<span class="mct-togglers"></span>')
+	            .append(oExpandElem)
+	            .append('<span class="mct-separator">{$sIconsSeparator}</span>')
+	            .append(oCollapseElem)
+	            .appendTo(oWrapperElem);
+	            
+            // Messages count
+            var oMessagesCount = $('<span class="mct-messages-count pull-right"></span>')
+                .append( me.find('.caselog_header').length )
+                .append( $('<span class="fas fa-comment fa-flip-horizontal"></span>') )
+                .appendTo(oWrapperElem);
             
             // Bind listeners
             oExpandElem.on('click', function(){
@@ -68,14 +96,6 @@ class ApplicationUIExtension implements iApplicationUIExtension
                     me.find('.caselog_entry, .caselog_entry_html').hide();
                 })
                 .qtip({ style: { name: 'molkobain-dark', tip: 'bottomMiddle' }, position: { corner: { target: 'topMiddle', tooltip: 'bottomMiddle' }, adjust: { y: -20 }} });
-            
-            var oWrapperElem = $('<span class="molkobain-caselogs-toggler"></span>');
-            oWrapperElem
-                .append(oExpandElem)
-                .append('<span class="mct-separator">/</span>')
-                .append(oCollapseElem);
-                
-            me.closest('fieldset').find('legend').append(oWrapperElem);
         });
     });
 EOF
