@@ -1,4 +1,4 @@
-/*
+/*!
  * Copyright (c) 2015 - 2019 Molkobain.
  *
  * This file is part of licensed extension.
@@ -8,10 +8,10 @@
 .molkobain-caselogs-toggler {
   /* Reset for admin console mostly */
   box-sizing: border-box;
-  margin-left: 15px;
-  margin-right: 5px;
-  vertical-align: text-top;
-  font-size: 0.9em;
+  padding: 4px 5px;
+  text-align: left;
+  color: #777;
+  background-color: #f2f2f2;
 }
 .molkobain-caselogs-toggler * {
   box-sizing: border-box;
@@ -19,21 +19,22 @@
 .molkobain-caselogs-toggler *:before, .molkobain-caselogs-toggler *:after {
   box-sizing: border-box;
 }
-.molkobain-caselogs-toggler > span.mct-button {
+.molkobain-caselogs-toggler .mct-togglers > span.mct-button {
   cursor: pointer;
-  /* Force FA4 settings in case of collision with an extension that brings FA5 (eg. molkobain-console-tooltips) */
-  font-family: FontAwesome;
-  font-weight: normal;
-  vertical-align: -15%;
 }
-.molkobain-caselogs-toggler > span.mct-separator {
-  margin: 0 4px;
+.molkobain-caselogs-toggler .mct-togglers > span.mct-separator {
+  margin: 0 0.7em;
   font-size: 0.8em;
+}
+.molkobain-caselogs-toggler .mct-messages-count > span {
+  margin-left: 0.5em;
 }
 /* Portal tuning*/
 .form-group .molkobain-caselogs-toggler {
-  margin-left: 12px;
+  margin-left: 10px;
+  display: inline-block;
+  background-color: transparent;
 }
-.form-group .molkobain-caselogs-toggler > span.mct-button {
-  vertical-align: initial;
+.form-group .molkobain-caselogs-toggler .mct-togglers > span.mct-button {
+  vertical-align: middle;
 }

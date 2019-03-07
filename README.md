@@ -47,6 +47,9 @@ No configuration needed.
 ### Parameters
 Some configuration parameters are available from the Configuration editor of the console:
 * ``enabled`` Enable / disable the extension without having to uninstall it. Value can be ``true`` or ``false``.
+* ``open_all_icon`` CSS classes of the *open* icon, allows you to choose any FontAwesome icon. Value must be a string a CSS classes separated by a space (eg. ``'fas fa-book-open'``).
+* ``close_all_icon`` CSS classes of the *close* icon, allows you to choose any FontAwesome icon. Value must be a string a CSS classes separated by a space (eg. ``'fas fa-book'``).
+* ``icons_separator`` Separator of the 2 icons. Value must be a string (eg. ``'-'``).
 
 ## Contributors
 I would like to give a special thank you to the people who contributed to this:

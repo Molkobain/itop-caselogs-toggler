@@ -20,22 +20,30 @@
     }
   }
 
-  margin-left: 15px;
-  margin-right: 5px;
-  vertical-align: text-top;
-  font-size: 0.9em;
+  //margin-left: 15px;
+  //margin-right: 5px;
+  padding: 4px 5px;
+  //vertical-align: text-top;
+  //font-size: 0.9em;
+  text-align: left;
+  color: #777;
+  background-color: #F2F2F2;
 
-  > span{
-    &.mct-button{
-      cursor: pointer;
-      /* Force FA4 settings in case of collision with an extension that brings FA5 (eg. molkobain-console-tooltips) */
-      font-family: FontAwesome;
-      font-weight: normal;
-      vertical-align: -15%;
+  .mct-togglers{
+    > span{
+      &.mct-button{
+        cursor: pointer;
+      }
+      &.mct-separator{
+        margin: 0 0.7em;
+        font-size: 0.8em;
+      }
     }
-    &.mct-separator{
-      margin: 0 4px;
-      font-size: 0.8em;
+  }
+
+  .mct-messages-count{
+    > span{
+      margin-left: 0.5em;
     }
   }
 }
@@ -43,12 +51,15 @@
 /* Portal tuning*/
 .form-group{
   .molkobain-caselogs-toggler{
-    margin-left: 12px;
-    vertical-align: initial;
+    margin-left: 10px;
+    display: inline-block;
+    background-color: transparent;
 
-    > span{
-      &.mct-button{
-        vertical-align: initial;
+    .mct-togglers{
+      > span{
+        &.mct-button{
+          vertical-align: middle;
+        }
       }
     }
   }

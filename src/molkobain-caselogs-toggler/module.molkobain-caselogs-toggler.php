@@ -14,7 +14,7 @@
 /** @noinspection PhpUnhandledExceptionInspection */
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'molkobain-caselogs-toggler/1.2.0',
+	'molkobain-caselogs-toggler/1.3.0',
 	array(
 		// Identification
 		//
@@ -24,7 +24,8 @@ SetupWebPage::AddModule(
 		// Setup
 		//
 		'dependencies' => array(
-			'molkobain-handy-framework/1.0.0',
+			'molkobain-handy-framework/1.1.0',
+			'molkobain-fontawesome5-pack/1.1.0',
 		),
 		'mandatory' => false,
 		'visible' => true,
