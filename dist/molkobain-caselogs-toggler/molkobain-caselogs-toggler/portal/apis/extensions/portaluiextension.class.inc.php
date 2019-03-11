@@ -96,6 +96,7 @@ function InstanciateCaselogsToggler(oElem)
 	    .appendTo(oWrapperElem);
     
     // Bind listeners
+    // - Togglers
     oExpandElem.on('click', function(){
             me.find('.caselog_field_entry_header .caselog_field_entry_button').removeClass('collapsed');
             me.find('.caselog_field_entry_content').addClass('in');
@@ -106,6 +107,20 @@ function InstanciateCaselogsToggler(oElem)
             me.find('.caselog_field_entry_content').removeClass('in');
         })
         .tooltip();
+    // - Toggle all on entry header click
+    me.find('.caselog_field_entry_header').on('click', function(oEvent){
+        if(oEvent.altKey === true)
+        {
+            if($(this).parent().find('.caselog_field_entry_content:first').hasClass('in'))
+            {
+                oCollapseElem.trigger('click');
+            }
+            else
+            {
+                oExpandElem.trigger('click');
+            }
+        }
+    });
 }
 
 // Instanciate widget on modals

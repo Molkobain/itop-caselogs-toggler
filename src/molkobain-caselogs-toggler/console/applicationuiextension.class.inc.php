@@ -86,6 +86,7 @@ class ApplicationUIExtension implements iApplicationUIExtension
                 .appendTo(oWrapperElem);
             
             // Bind listeners
+            // - Togglers
             oExpandElem.on('click', function(){
                     me.find('.caselog_header').addClass('open');
                     me.find('.caselog_entry, .caselog_entry_html').show();
@@ -96,6 +97,20 @@ class ApplicationUIExtension implements iApplicationUIExtension
                     me.find('.caselog_entry, .caselog_entry_html').hide();
                 })
                 .qtip({ style: { name: 'molkobain-dark', tip: 'bottomMiddle' }, position: { corner: { target: 'topMiddle', tooltip: 'bottomMiddle' }, adjust: { y: -20 }} });
+            // - Toggle all on entry header click
+            me.find('.caselog_header').on('click', function(oEvent){
+                if(oEvent.altKey === true)
+                {
+                    if($(this).hasClass('open'))
+                    {
+                        oExpandElem.trigger('click');
+                    }
+                    else
+                    {
+                        oCollapseElem.trigger('click');
+                    }
+                }
+            });
         });
     });
 EOF
