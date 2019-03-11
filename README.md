@@ -54,6 +54,7 @@ Some configuration parameters are available from the Configuration editor of the
 ## Contributors
 I would like to give a special thank you to the people who contributed to this:
  - Bostoen, Jeffrey
+ - Goiffon, Pierre
 
 ## Licensing
 This extension is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
