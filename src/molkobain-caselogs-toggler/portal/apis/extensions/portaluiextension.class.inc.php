@@ -46,16 +46,6 @@ class PortalUIExtension extends AbstractPortalUIExtension
 
     /**
      * @inheritdoc
-     */
-    public function GetJSFiles(Application $oApp)
-    {
-        $aJSFiles = array();
-
-        return $aJSFiles;
-    }
-
-    /**
-     * @inheritdoc
      *
      * @throws \DictExceptionMissingString
      */
