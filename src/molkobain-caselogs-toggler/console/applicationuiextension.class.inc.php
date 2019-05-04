@@ -98,7 +98,7 @@ class ApplicationUIExtension implements iApplicationUIExtension
                 })
                 .qtip({ style: { name: 'molkobain-dark', tip: 'bottomMiddle' }, position: { corner: { target: 'topMiddle', tooltip: 'bottomMiddle' }, adjust: { y: -20 }} });
             // - Toggle all on entry header click
-            me.find('.caselog_header').on('click', function(oEvent){
+            me.on('click', '.caselog_header', function(oEvent){
                 if(oEvent.altKey === true)
                 {
                     if($(this).hasClass('open'))
@@ -114,7 +114,6 @@ class ApplicationUIExtension implements iApplicationUIExtension
         });
     });
 EOF
-
         );
 
         return;

@@ -76,7 +76,6 @@ class PortalUIExtension extends AbstractPortalUIExtension
 
         $sJSInline =
 <<<EOF
-
 // Molkobain caselogs toggler
 function InstanciateCaselogsToggler(oElem)
 {
@@ -108,7 +107,7 @@ function InstanciateCaselogsToggler(oElem)
         })
         .tooltip();
     // - Toggle all on entry header click
-    me.find('.caselog_field_entry_header').on('click', function(oEvent){
+    me.on('click', '.caselog_field_entry_header', function(oEvent){
         if(oEvent.altKey === true)
         {
             if($(this).parent().find('.caselog_field_entry_content:first').hasClass('in'))
