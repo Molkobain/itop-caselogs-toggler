@@ -57,7 +57,7 @@ class ApplicationUIExtension implements iApplicationUIExtension
     // Molkobain caselogs toggler
     $(document).ready(function(){
         // Initializing widget
-        $('fieldset > .caselog').each(function(){
+        $('fieldset .caselog').each(function(){
             var me = $(this);
             
             // Stop if no entry
