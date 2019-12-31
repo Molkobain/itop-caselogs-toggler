@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2015 - 2019 Molkobain.
+ * Copyright (c) 2015 - 2020 Molkobain.
  *
  * This file is part of licensed extension.
  *
@@ -11,23 +11,25 @@ namespace Molkobain\iTop\Extension\CaselogsToggler\Portal\Extension;
 
 use AbstractPortalUIExtension;
 use Dict;
-use Molkobain\iTop\Extension\CaselogsToggler\Common\Helper\ConfigHelper;
-use Symfony\Component\DependencyInjection\Container;
+use Silex\Application;
 use utils;
+use Molkobain\iTop\Extension\CaselogsToggler\Common\Helper\ConfigHelper;
 
-if(!class_exists('Molkobain\\iTop\\Extension\\CaselogsToggler\\Portal\\Extension\\PortalUIExtensionLegacy'))
+// Protection, only for iTop 2.4-2.6
+if(version_compare(ITOP_VERSION, '2.3', '>') && version_compare(ITOP_VERSION, '2.7', '<') && (ITOP_VERSION !== 'develop'))
 {
 	/**
-	 * Class PortalUIExtension
+	 * Class PortalUIExtensionLegacy
 	 *
 	 * @package Molkobain\iTop\Extension\CaselogsToggler\Portal\Extension
+	 * @since v1.5.0
 	 */
-	class PortalUIExtension extends AbstractPortalUIExtension
+	class PortalUIExtensionLegacy extends AbstractPortalUIExtension
 	{
 		/**
 		 * @inheritdoc
 		 */
-		public function GetCSSFiles(Container $oContainer)
+		public function GetCSSFiles(Application $oApp)
 		{
 			// Check if enabled
 			if(ConfigHelper::IsEnabled() === false)
@@ -51,7 +53,7 @@ if(!class_exists('Molkobain\\iTop\\Extension\\CaselogsToggler\\Portal\\Extension
 		 *
 		 * @throws \DictExceptionMissingString
 		 */
-		public function GetJSInline(Container $oContainer)
+		public function GetJSInline(Application $oApp)
 		{
 			// Check if enabled
 			if(ConfigHelper::IsEnabled() === false)
