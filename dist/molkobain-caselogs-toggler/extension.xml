@@ -5,9 +5,9 @@
 	<author><![CDATA[Guillaume Lajarige]]></author>
 	<label><![CDATA[Caselog entries toggler]]></label>
 	<description><![CDATA[Finally a way to open / close all entries at once!]]></description>
-	<version>1.5.2</version>
-	<release_date>2021-02-13</release_date>
-	<version_description><![CDATA[Update dependencies to last versions]]></version_description>
+	<version>1.6.0</version>
+	<release_date>2021-10-20</release_date>
+	<version_description><![CDATA[Ensure compatibility with iTop 3.0+ in case the module is not uninstalled]]></version_description>
 	<itop_version_min>2.4.0</itop_version_min>
 	<status>stable</status>
 	<mandatory>false</mandatory>

@@ -14,7 +14,7 @@
 /** @noinspection PhpUnhandledExceptionInspection */
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'molkobain-caselogs-toggler/1.5.2',
+	'molkobain-caselogs-toggler/1.6.0',
 	array(
 		// Identification
 		//
